@@ -1,7 +1,7 @@
 package client
 
 import (
-	"KubeInsight/model"
+	"KubeInsight/internal/model"
 	"k8s.io/client-go/kubernetes"
 )
 
