@@ -1,13 +1,14 @@
 package client
 
 import (
-	"KubeInsight/internal/model"
 	"k8s.io/client-go/kubernetes"
+	"k8s.io/client-go/rest"
 )
 
-func NewKubernetesClient() (kubernetes.Interface, error) {
-	kc := model.KubeConfig{}
-	k8s, err := kubernetes.NewForConfig(kc.Config)
+func NewKubernetesClient(kc *rest.Config) (kubernetes.Interface, error) {
+	//根据name选择对应kubecConfig
+	//判断集群名是否存在,不存在则不需要创建直接退出
+	k8s, err := kubernetes.NewForConfig(kc)
 	if err != nil {
 		return nil, err
 	}
