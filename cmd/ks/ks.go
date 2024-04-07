@@ -2,6 +2,7 @@ package main
 
 import (
 	"KubeInsight/internal/common"
+	"KubeInsight/internal/model"
 	"KubeInsight/internal/options"
 	"KubeInsight/internal/web/router"
 	"KubeInsight/pkg/store/mysql"
@@ -26,6 +27,11 @@ func initMySQLClient() {
 	common.DB, err = mysql.NewMySQLClient(dsn)
 	if err != nil {
 		log.Fatalf("mysql init failed: %v", err)
+	}
+	user := model.User{}
+	kubeconfig := model.KubeConfig{}
+	if autoMigrate := common.DB.GormClient.AutoMigrate(&user, &kubeconfig); autoMigrate != nil {
+		log.Fatalf("Table init: %v", autoMigrate)
 	}
 
 }
