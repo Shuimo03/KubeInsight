@@ -2,7 +2,7 @@ package router
 
 import (
 	"KubeInsight/internal/common"
-	"KubeInsight/internal/web/handlers"
+	"KubeInsight/internal/server/handlers"
 	"github.com/gin-gonic/gin"
 )
 

@@ -1,15 +1,15 @@
 package main
 
 import (
+	"KubeInsight/iam/server/router"
 	"KubeInsight/internal/common"
-	"KubeInsight/internal/model"
 	"KubeInsight/internal/options"
-	"KubeInsight/internal/server/router"
 	"KubeInsight/pkg/store/mysql"
 	"fmt"
 	"log"
 )
 
+// 抽象成公共函数
 func initMySQLClient() {
 	mysqlConfig, err := options.LoadMySQLConfig("config/mysql.yaml")
 	if err != nil {
@@ -28,18 +28,18 @@ func initMySQLClient() {
 	if err != nil {
 		log.Fatalf("mysql init failed: %v", err)
 	}
-	kubeconfig := model.KubeConfig{}
-	if autoMigrate := common.DB.GormClient.AutoMigrate(&kubeconfig); autoMigrate != nil {
-		log.Fatalf("Table init: %v", autoMigrate)
-	}
-
 }
 
 func init() {
 	initMySQLClient()
+	//if err := model.InitModel(); err != nil {
+	//	panic(err)
+	//}
+	//config.InitSySAdmin()
 }
 
 func main() {
+	log.Println("IAM")
 	r := router.Router()
 	r.Run()
 }

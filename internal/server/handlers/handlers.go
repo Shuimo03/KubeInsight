@@ -1,7 +1,7 @@
 package handlers
 
 import (
-	"KubeInsight/internal/web/services"
+	"KubeInsight/internal/server/services"
 	"KubeInsight/pkg/store/mysql"
 )
 
