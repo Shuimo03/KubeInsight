@@ -1,6 +1,7 @@
 package handlers
 
 import (
+	"KubeInsight/iam/jwt"
 	"KubeInsight/iam/server/params"
 	"github.com/gin-gonic/gin"
 	"net/http"
@@ -21,9 +22,16 @@ func (iam *IamHandler) Login(c *gin.Context) {
 		return
 	}
 
-	if err := iam.iamService.Login(user.Name, user.Password); err != nil {
+	token, err := iam.iamService.Login(user.Name, user.Password)
+	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return
 	}
+	userID, err := jwt.ParseToken(token)
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+		return
+	}
+	c.Set("userID", userID)
 	c.JSON(http.StatusOK, gin.H{"message": "successfully Login"})
 }

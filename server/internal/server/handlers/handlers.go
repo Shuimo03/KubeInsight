@@ -1,8 +1,8 @@
 package handlers
 
 import (
-	"KubeInsight/internal/server/services"
 	"KubeInsight/pkg/store/mysql"
+	"KubeInsight/server/internal/server/services"
 )
 
 type ServiceHandler struct {

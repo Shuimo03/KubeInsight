@@ -1,8 +1,8 @@
 package services
 
 import (
-	"KubeInsight/internal/model"
 	"KubeInsight/pkg/store/mysql"
+	"KubeInsight/server/internal/model"
 	"fmt"
 	"k8s.io/client-go/tools/clientcmd"
 	"time"

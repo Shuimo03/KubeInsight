@@ -2,7 +2,7 @@ package config
 
 import (
 	"KubeInsight/iam/model"
-	"KubeInsight/internal/common"
+	"KubeInsight/server/internal/common"
 	"fmt"
 	"github.com/spf13/viper"
 	"golang.org/x/crypto/bcrypt"

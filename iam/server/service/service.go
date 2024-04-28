@@ -3,7 +3,7 @@ package service
 import "KubeInsight/pkg/store/mysql"
 
 type IamServiceInterface interface {
-	Login(username, password string) error
+	Login(username, password string) (string, error)
 }
 
 type IamService struct {

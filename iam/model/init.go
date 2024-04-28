@@ -1,7 +1,7 @@
 package model
 
 import (
-	"KubeInsight/internal/common"
+	"KubeInsight/pkg/common"
 	"fmt"
 )
 

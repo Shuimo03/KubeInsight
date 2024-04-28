@@ -1,7 +1,7 @@
 package handlers
 
 import (
-	"KubeInsight/internal/server/params"
+	"KubeInsight/server/internal/server/params"
 	"github.com/gin-gonic/gin"
 	"net/http"
 )

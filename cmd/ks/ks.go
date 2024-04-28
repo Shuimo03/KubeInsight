@@ -1,17 +1,17 @@
 package main
 
 import (
-	"KubeInsight/internal/common"
-	"KubeInsight/internal/model"
-	"KubeInsight/internal/options"
-	"KubeInsight/internal/server/router"
 	"KubeInsight/pkg/store/mysql"
+	"KubeInsight/server/internal/common"
+	"KubeInsight/server/internal/model"
+	"KubeInsight/server/internal/options"
+	"KubeInsight/server/internal/server/router"
 	"fmt"
 	"log"
 )
 
 func initMySQLClient() {
-	mysqlConfig, err := options.LoadMySQLConfig("config/mysql.yaml")
+	mysqlConfig, err := options.LoadMySQLConfig("config/store.yaml")
 	if err != nil {
 		log.Fatalf("failed to load MySQL options: %v", err)
 	}
