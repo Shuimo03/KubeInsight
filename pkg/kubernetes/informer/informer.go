@@ -4,6 +4,7 @@ import (
 	"KubeInsight/pkg/kubernetes/informer/workload/deployment"
 	"KubeInsight/pkg/kubernetes/informer/workload/statefulsets"
 	"k8s.io/client-go/informers"
+	"k8s.io/client-go/tools/cache"
 )
 
 /**
@@ -21,7 +22,7 @@ network
 */
 
 type Interface interface {
-	ListResource() ([]interface{}, error)
+	ListResource() (cache.SharedIndexInformer, error)
 }
 
 type KubeResource struct {
