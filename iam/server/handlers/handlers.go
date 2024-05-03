@@ -2,15 +2,20 @@ package handlers
 
 import (
 	"KubeInsight/iam/server/service"
-	"KubeInsight/pkg/store/mysql"
+	"github.com/gin-gonic/gin"
 )
 
 type IamHandler struct {
 	iamService service.IamServiceInterface
 }
 
-func NewIamHandler(handler mysql.DB) *IamHandler {
+type IamHandlerInterface interface {
+	Login(c *gin.Context)
+	Auth(c *gin.Context)
+}
+
+func NewIamHandler() IamHandlerInterface {
 	return &IamHandler{
-		service.NewIamService(handler),
+		service.NewIamService(),
 	}
 }

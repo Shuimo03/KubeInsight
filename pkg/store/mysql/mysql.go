@@ -7,6 +7,8 @@ import (
 	"sync"
 )
 
+//TODO 需要初始化所有model到库中
+
 var (
 	db      *gorm.DB
 	dberror error
