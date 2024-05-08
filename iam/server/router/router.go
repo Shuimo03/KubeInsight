@@ -12,5 +12,6 @@ func Router() *gin.Engine {
 	kubernetesGroup := r.Group("/v1/iam")
 	kubernetesGroup.POST("/login", iam.Login)
 	kubernetesGroup.POST("/auth", iam.Auth)
+	kubernetesGroup.GET("/cors", iam.Cors)
 	return r
 }

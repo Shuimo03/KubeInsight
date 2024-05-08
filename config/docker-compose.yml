@@ -1,0 +1,9 @@
+services:
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+    volumes:
+      - "/srv/cache-db:/data"
+
+# docker run --name mysql -dit -p 3306:3306 -v storage:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=WUliang1998102 mysql:latest

@@ -12,6 +12,7 @@ type IamHandler struct {
 type IamHandlerInterface interface {
 	Login(c *gin.Context)
 	Auth(c *gin.Context)
+	Cors(c *gin.Context)
 }
 
 func NewIamHandler() IamHandlerInterface {

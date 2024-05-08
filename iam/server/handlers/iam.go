@@ -48,3 +48,7 @@ func (iam *IamHandler) Auth(c *gin.Context) {
 	}
 	c.JSON(http.StatusOK, gin.H{"message": "successfully Auth"})
 }
+
+func (iam *IamHandler) Cors(c *gin.Context) {
+	c.JSON(http.StatusOK, gin.H{"message": "Test"})
+}

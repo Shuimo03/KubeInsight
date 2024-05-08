@@ -16,7 +16,7 @@ type IamService struct {
 	cacheHandler *redis.Client
 }
 
-func NewIamService() *IamService {
+func NewIamService() IamServiceInterface {
 	service := &IamService{
 		common.DB,
 		common.Redis,

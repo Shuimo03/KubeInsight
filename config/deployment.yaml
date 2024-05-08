@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: resource
+  labels:
+    app: resource
+spec:
+  selector:
+    matchLabels:
+      app: resource
+  template:
+    metadata:
+      labels:
+        app: resource
+    spec:
+      containers:
+        - name: resource
+          image: hypriot/rpi-stress
+          resources:
+            limits:
+              cpu: "4m"
+              memory: "100Mi"
+            requests:
+              cpu: "1m"
+              memory: "10Mi"
